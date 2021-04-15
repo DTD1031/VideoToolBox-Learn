@@ -45,6 +45,9 @@ void didCompressH264 (void * CM_NULLABLE outputCallbackRefCon,
         return;
     }
     
+    // kVTCompressionPropertyKey_RealTime
+    //实时传递
+    VTSessionSetProperty(encodingSession, kVTCompressionPropertyKey_RealTime, kCFBooleanTrue);
 }
 
 @end
