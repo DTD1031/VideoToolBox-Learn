@@ -1,0 +1,736 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		50FCDC44B8B84B66098AFF21 /* libPods-Replaykit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C47E2B7F2D6F74FBA4AB68D /* libPods-Replaykit.a */; };
+		9E70898C37189DD3F8104EF6 /* libPods-SOCKETDEMO_0315.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0BFDBE86937DB2F0FB96D89 /* libPods-SOCKETDEMO_0315.a */; };
+		C96CBF812600E64600ECEDF8 /* ServiceSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBF802600E64600ECEDF8 /* ServiceSocket.m */; };
+		C96CBF862600E6FA00ECEDF8 /* ClientSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBF852600E6FA00ECEDF8 /* ClientSocket.m */; };
+		C96CBF8B2600E82900ECEDF8 /* NSString+IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBF8A2600E82900ECEDF8 /* NSString+IPAddress.m */; };
+		C96CBF932600FCB300ECEDF8 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C96CBF922600FCB300ECEDF8 /* ReplayKit.framework */; };
+		C96CBF972600FCB300ECEDF8 /* SampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBF962600FCB300ECEDF8 /* SampleHandler.m */; };
+		C96CBF9B2600FCB300ECEDF8 /* Replaykit.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C96CBF912600FCB300ECEDF8 /* Replaykit.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C96CBFA62600FD0800ECEDF8 /* ServiceSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBF802600E64600ECEDF8 /* ServiceSocket.m */; };
+		C96CBFA92600FD0B00ECEDF8 /* ClientSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBF852600E6FA00ECEDF8 /* ClientSocket.m */; };
+		C96CBFAC2600FD0D00ECEDF8 /* NSString+IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBF8A2600E82900ECEDF8 /* NSString+IPAddress.m */; };
+		C96CBFB92600FE7600ECEDF8 /* ReplaykitSendSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFB82600FE7600ECEDF8 /* ReplaykitSendSocket.m */; };
+		C96CBFD1260194AD00ECEDF8 /* RongRTCCodec.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFC4260194AD00ECEDF8 /* RongRTCCodec.m */; };
+		C96CBFD2260194AD00ECEDF8 /* helpers.mm in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFC5260194AD00ECEDF8 /* helpers.mm */; };
+		C96CBFD3260194AD00ECEDF8 /* RongRTCVideoEncoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFC8260194AD00ECEDF8 /* RongRTCVideoEncoder.mm */; };
+		C96CBFD4260194AD00ECEDF8 /* RongRTCVideoEncoderSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFCA260194AD00ECEDF8 /* RongRTCVideoEncoderSettings.m */; };
+		C96CBFD5260194AD00ECEDF8 /* RongRTCVideoDecoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFCD260194AD00ECEDF8 /* RongRTCVideoDecoder.mm */; };
+		C96CBFD8260194BA00ECEDF8 /* helpers.mm in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFC5260194AD00ECEDF8 /* helpers.mm */; };
+		C96CBFDB260194BD00ECEDF8 /* RongRTCCodec.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFC4260194AD00ECEDF8 /* RongRTCCodec.m */; };
+		C96CBFDE260194C400ECEDF8 /* RongRTCVideoEncoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFC8260194AD00ECEDF8 /* RongRTCVideoEncoder.mm */; };
+		C96CBFE1260194C800ECEDF8 /* RongRTCVideoEncoderSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFCA260194AD00ECEDF8 /* RongRTCVideoEncoderSettings.m */; };
+		C96CBFE4260194CB00ECEDF8 /* RongRTCVideoDecoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFCD260194AD00ECEDF8 /* RongRTCVideoDecoder.mm */; };
+		C96CBFEA2601953400ECEDF8 /* ReplaykitCodec.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFE92601953400ECEDF8 /* ReplaykitCodec.m */; };
+		C99D785926089D0F00C8EDCE /* NMLRPStreamNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C99D785826089D0F00C8EDCE /* NMLRPStreamNode.m */; };
+		C99D785C26089D1400C8EDCE /* NMLRPStreamNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C99D785826089D0F00C8EDCE /* NMLRPStreamNode.m */; };
+		C9D542AD262858E700B3FE46 /* NMLCompress.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D542AC262858E700B3FE46 /* NMLCompress.m */; };
+		C9EDE1C825FF8DF800BB8B48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EDE1C725FF8DF800BB8B48 /* AppDelegate.m */; };
+		C9EDE1CB25FF8DF800BB8B48 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EDE1CA25FF8DF800BB8B48 /* SceneDelegate.m */; };
+		C9EDE1CE25FF8DF800BB8B48 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EDE1CD25FF8DF800BB8B48 /* ViewController.m */; };
+		C9EDE1D125FF8DF800BB8B48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9EDE1CF25FF8DF800BB8B48 /* Main.storyboard */; };
+		C9EDE1D325FF8DFA00BB8B48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9EDE1D225FF8DFA00BB8B48 /* Assets.xcassets */; };
+		C9EDE1D625FF8DFA00BB8B48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9EDE1D425FF8DFA00BB8B48 /* LaunchScreen.storyboard */; };
+		C9EDE1D925FF8DFA00BB8B48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EDE1D825FF8DFA00BB8B48 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C96CBF992600FCB300ECEDF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9EDE1BB25FF8DF800BB8B48 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C96CBF902600FCB300ECEDF8;
+			remoteInfo = Replaykit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C96CBF9F2600FCB300ECEDF8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C96CBF9B2600FCB300ECEDF8 /* Replaykit.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		06715C22406217A39DD41EE5 /* Pods-Replaykit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Replaykit.release.xcconfig"; path = "Target Support Files/Pods-Replaykit/Pods-Replaykit.release.xcconfig"; sourceTree = "<group>"; };
+		0CDE40AE36E1904BDC0F440B /* Pods-SOCKETDEMO_0315.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOCKETDEMO_0315.release.xcconfig"; path = "Target Support Files/Pods-SOCKETDEMO_0315/Pods-SOCKETDEMO_0315.release.xcconfig"; sourceTree = "<group>"; };
+		1C47E2B7F2D6F74FBA4AB68D /* libPods-Replaykit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Replaykit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9CF1EB3F1F78D4496622C60 /* Pods-SOCKETDEMO_0315.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOCKETDEMO_0315.debug.xcconfig"; path = "Target Support Files/Pods-SOCKETDEMO_0315/Pods-SOCKETDEMO_0315.debug.xcconfig"; sourceTree = "<group>"; };
+		C96CBF7F2600E64600ECEDF8 /* ServiceSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceSocket.h; sourceTree = "<group>"; };
+		C96CBF802600E64600ECEDF8 /* ServiceSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceSocket.m; sourceTree = "<group>"; };
+		C96CBF842600E6FA00ECEDF8 /* ClientSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientSocket.h; sourceTree = "<group>"; };
+		C96CBF852600E6FA00ECEDF8 /* ClientSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClientSocket.m; sourceTree = "<group>"; };
+		C96CBF892600E82900ECEDF8 /* NSString+IPAddress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+IPAddress.h"; sourceTree = "<group>"; };
+		C96CBF8A2600E82900ECEDF8 /* NSString+IPAddress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+IPAddress.m"; sourceTree = "<group>"; };
+		C96CBF912600FCB300ECEDF8 /* Replaykit.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Replaykit.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C96CBF922600FCB300ECEDF8 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		C96CBF952600FCB300ECEDF8 /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
+		C96CBF962600FCB300ECEDF8 /* SampleHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleHandler.m; sourceTree = "<group>"; };
+		C96CBF982600FCB300ECEDF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C96CBFB72600FE7500ECEDF8 /* ReplaykitSendSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplaykitSendSocket.h; sourceTree = "<group>"; };
+		C96CBFB82600FE7600ECEDF8 /* ReplaykitSendSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplaykitSendSocket.m; sourceTree = "<group>"; };
+		C96CBFC4260194AD00ECEDF8 /* RongRTCCodec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RongRTCCodec.m; sourceTree = "<group>"; };
+		C96CBFC5260194AD00ECEDF8 /* helpers.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = helpers.mm; sourceTree = "<group>"; };
+		C96CBFC7260194AD00ECEDF8 /* RongRTCVideoEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RongRTCVideoEncoder.h; sourceTree = "<group>"; };
+		C96CBFC8260194AD00ECEDF8 /* RongRTCVideoEncoder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RongRTCVideoEncoder.mm; sourceTree = "<group>"; };
+		C96CBFC9260194AD00ECEDF8 /* RongRTCCodecProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RongRTCCodecProtocol.h; sourceTree = "<group>"; };
+		C96CBFCA260194AD00ECEDF8 /* RongRTCVideoEncoderSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RongRTCVideoEncoderSettings.m; sourceTree = "<group>"; };
+		C96CBFCC260194AD00ECEDF8 /* RongRTCVideoDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RongRTCVideoDecoder.h; sourceTree = "<group>"; };
+		C96CBFCD260194AD00ECEDF8 /* RongRTCVideoDecoder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RongRTCVideoDecoder.mm; sourceTree = "<group>"; };
+		C96CBFCE260194AD00ECEDF8 /* RongRTCCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RongRTCCodec.h; sourceTree = "<group>"; };
+		C96CBFCF260194AD00ECEDF8 /* RongRTCVideoEncoderSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RongRTCVideoEncoderSettings.h; sourceTree = "<group>"; };
+		C96CBFD0260194AD00ECEDF8 /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
+		C96CBFE82601953400ECEDF8 /* ReplaykitCodec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplaykitCodec.h; sourceTree = "<group>"; };
+		C96CBFE92601953400ECEDF8 /* ReplaykitCodec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplaykitCodec.m; sourceTree = "<group>"; };
+		C99D785726089D0F00C8EDCE /* NMLRPStreamNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMLRPStreamNode.h; sourceTree = "<group>"; };
+		C99D785826089D0F00C8EDCE /* NMLRPStreamNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMLRPStreamNode.m; sourceTree = "<group>"; };
+		C9D542AB262858E700B3FE46 /* NMLCompress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMLCompress.h; sourceTree = "<group>"; };
+		C9D542AC262858E700B3FE46 /* NMLCompress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMLCompress.m; sourceTree = "<group>"; };
+		C9EDE1C325FF8DF800BB8B48 /* SOCKETDEMO_0315.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOCKETDEMO_0315.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9EDE1C625FF8DF800BB8B48 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C9EDE1C725FF8DF800BB8B48 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C9EDE1C925FF8DF800BB8B48 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		C9EDE1CA25FF8DF800BB8B48 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		C9EDE1CC25FF8DF800BB8B48 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C9EDE1CD25FF8DF800BB8B48 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C9EDE1D025FF8DF800BB8B48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C9EDE1D225FF8DFA00BB8B48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C9EDE1D525FF8DFA00BB8B48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C9EDE1D725FF8DFA00BB8B48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9EDE1D825FF8DFA00BB8B48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C9F731B2CD5410F206CEE848 /* Pods-Replaykit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Replaykit.debug.xcconfig"; path = "Target Support Files/Pods-Replaykit/Pods-Replaykit.debug.xcconfig"; sourceTree = "<group>"; };
+		E0BFDBE86937DB2F0FB96D89 /* libPods-SOCKETDEMO_0315.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SOCKETDEMO_0315.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C96CBF8E2600FCB300ECEDF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C96CBF932600FCB300ECEDF8 /* ReplayKit.framework in Frameworks */,
+				50FCDC44B8B84B66098AFF21 /* libPods-Replaykit.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9EDE1C025FF8DF800BB8B48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E70898C37189DD3F8104EF6 /* libPods-SOCKETDEMO_0315.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4AB9A140C7376F0E79FCE6FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0BFDBE86937DB2F0FB96D89 /* libPods-SOCKETDEMO_0315.a */,
+				C96CBF922600FCB300ECEDF8 /* ReplayKit.framework */,
+				1C47E2B7F2D6F74FBA4AB68D /* libPods-Replaykit.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C94ADE4E2604ADEC00748D67 /* VideoFormat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VideoFormat;
+			sourceTree = "<group>";
+		};
+		C96CBF832600E64B00ECEDF8 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				C99D785726089D0F00C8EDCE /* NMLRPStreamNode.h */,
+				C99D785826089D0F00C8EDCE /* NMLRPStreamNode.m */,
+				C94ADE4E2604ADEC00748D67 /* VideoFormat */,
+				C96CBF7F2600E64600ECEDF8 /* ServiceSocket.h */,
+				C96CBF802600E64600ECEDF8 /* ServiceSocket.m */,
+				C96CBF842600E6FA00ECEDF8 /* ClientSocket.h */,
+				C96CBF852600E6FA00ECEDF8 /* ClientSocket.m */,
+				C96CBF892600E82900ECEDF8 /* NSString+IPAddress.h */,
+				C96CBF8A2600E82900ECEDF8 /* NSString+IPAddress.m */,
+			);
+			path = Socket;
+			sourceTree = "<group>";
+		};
+		C96CBF942600FCB300ECEDF8 /* Replaykit */ = {
+			isa = PBXGroup;
+			children = (
+				C96CBFE72601951A00ECEDF8 /* Codec */,
+				C96CBFB62600FE5D00ECEDF8 /* Socket */,
+				C96CBF952600FCB300ECEDF8 /* SampleHandler.h */,
+				C96CBF962600FCB300ECEDF8 /* SampleHandler.m */,
+				C96CBF982600FCB300ECEDF8 /* Info.plist */,
+			);
+			path = Replaykit;
+			sourceTree = "<group>";
+		};
+		C96CBFB62600FE5D00ECEDF8 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				C96CBFB72600FE7500ECEDF8 /* ReplaykitSendSocket.h */,
+				C96CBFB82600FE7600ECEDF8 /* ReplaykitSendSocket.m */,
+			);
+			path = Socket;
+			sourceTree = "<group>";
+		};
+		C96CBFC3260194AD00ECEDF8 /* Codec */ = {
+			isa = PBXGroup;
+			children = (
+				C96CBFC9260194AD00ECEDF8 /* RongRTCCodecProtocol.h */,
+				C96CBFC6260194AD00ECEDF8 /* Encoder */,
+				C96CBFCB260194AD00ECEDF8 /* Decoder */,
+				C96CBFCE260194AD00ECEDF8 /* RongRTCCodec.h */,
+				C96CBFC4260194AD00ECEDF8 /* RongRTCCodec.m */,
+				C96CBFCF260194AD00ECEDF8 /* RongRTCVideoEncoderSettings.h */,
+				C96CBFCA260194AD00ECEDF8 /* RongRTCVideoEncoderSettings.m */,
+				C96CBFD0260194AD00ECEDF8 /* helpers.h */,
+				C96CBFC5260194AD00ECEDF8 /* helpers.mm */,
+			);
+			path = Codec;
+			sourceTree = SOURCE_ROOT;
+		};
+		C96CBFC6260194AD00ECEDF8 /* Encoder */ = {
+			isa = PBXGroup;
+			children = (
+				C96CBFC7260194AD00ECEDF8 /* RongRTCVideoEncoder.h */,
+				C96CBFC8260194AD00ECEDF8 /* RongRTCVideoEncoder.mm */,
+			);
+			path = Encoder;
+			sourceTree = "<group>";
+		};
+		C96CBFCB260194AD00ECEDF8 /* Decoder */ = {
+			isa = PBXGroup;
+			children = (
+				C96CBFCC260194AD00ECEDF8 /* RongRTCVideoDecoder.h */,
+				C96CBFCD260194AD00ECEDF8 /* RongRTCVideoDecoder.mm */,
+			);
+			path = Decoder;
+			sourceTree = "<group>";
+		};
+		C96CBFE72601951A00ECEDF8 /* Codec */ = {
+			isa = PBXGroup;
+			children = (
+				C96CBFE82601953400ECEDF8 /* ReplaykitCodec.h */,
+				C96CBFE92601953400ECEDF8 /* ReplaykitCodec.m */,
+			);
+			path = Codec;
+			sourceTree = "<group>";
+		};
+		C9D542AA262858D600B3FE46 /* Compress */ = {
+			isa = PBXGroup;
+			children = (
+				C9D542AB262858E700B3FE46 /* NMLCompress.h */,
+				C9D542AC262858E700B3FE46 /* NMLCompress.m */,
+			);
+			path = Compress;
+			sourceTree = "<group>";
+		};
+		C9EDE1BA25FF8DF800BB8B48 = {
+			isa = PBXGroup;
+			children = (
+				C9EDE1C525FF8DF800BB8B48 /* SOCKETDEMO_0315 */,
+				C96CBF942600FCB300ECEDF8 /* Replaykit */,
+				C9EDE1C425FF8DF800BB8B48 /* Products */,
+				D94E94EAB0499C803053A6A6 /* Pods */,
+				4AB9A140C7376F0E79FCE6FD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C9EDE1C425FF8DF800BB8B48 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9EDE1C325FF8DF800BB8B48 /* SOCKETDEMO_0315.app */,
+				C96CBF912600FCB300ECEDF8 /* Replaykit.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9EDE1C525FF8DF800BB8B48 /* SOCKETDEMO_0315 */ = {
+			isa = PBXGroup;
+			children = (
+				C9D542AA262858D600B3FE46 /* Compress */,
+				C96CBFC3260194AD00ECEDF8 /* Codec */,
+				C96CBF832600E64B00ECEDF8 /* Socket */,
+				C9EDE1C625FF8DF800BB8B48 /* AppDelegate.h */,
+				C9EDE1C725FF8DF800BB8B48 /* AppDelegate.m */,
+				C9EDE1C925FF8DF800BB8B48 /* SceneDelegate.h */,
+				C9EDE1CA25FF8DF800BB8B48 /* SceneDelegate.m */,
+				C9EDE1CC25FF8DF800BB8B48 /* ViewController.h */,
+				C9EDE1CD25FF8DF800BB8B48 /* ViewController.m */,
+				C9EDE1CF25FF8DF800BB8B48 /* Main.storyboard */,
+				C9EDE1D225FF8DFA00BB8B48 /* Assets.xcassets */,
+				C9EDE1D425FF8DFA00BB8B48 /* LaunchScreen.storyboard */,
+				C9EDE1D725FF8DFA00BB8B48 /* Info.plist */,
+				C9EDE1D825FF8DFA00BB8B48 /* main.m */,
+			);
+			path = SOCKETDEMO_0315;
+			sourceTree = "<group>";
+		};
+		D94E94EAB0499C803053A6A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B9CF1EB3F1F78D4496622C60 /* Pods-SOCKETDEMO_0315.debug.xcconfig */,
+				0CDE40AE36E1904BDC0F440B /* Pods-SOCKETDEMO_0315.release.xcconfig */,
+				C9F731B2CD5410F206CEE848 /* Pods-Replaykit.debug.xcconfig */,
+				06715C22406217A39DD41EE5 /* Pods-Replaykit.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C96CBF902600FCB300ECEDF8 /* Replaykit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C96CBF9C2600FCB300ECEDF8 /* Build configuration list for PBXNativeTarget "Replaykit" */;
+			buildPhases = (
+				041B0F9B415AE206491975D2 /* [CP] Check Pods Manifest.lock */,
+				C96CBF8D2600FCB300ECEDF8 /* Sources */,
+				C96CBF8E2600FCB300ECEDF8 /* Frameworks */,
+				C96CBF8F2600FCB300ECEDF8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Replaykit;
+			productName = Replaykit;
+			productReference = C96CBF912600FCB300ECEDF8 /* Replaykit.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		C9EDE1C225FF8DF800BB8B48 /* SOCKETDEMO_0315 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9EDE1DC25FF8DFA00BB8B48 /* Build configuration list for PBXNativeTarget "SOCKETDEMO_0315" */;
+			buildPhases = (
+				7B8101295070DC1424090313 /* [CP] Check Pods Manifest.lock */,
+				C9EDE1BF25FF8DF800BB8B48 /* Sources */,
+				C9EDE1C025FF8DF800BB8B48 /* Frameworks */,
+				C9EDE1C125FF8DF800BB8B48 /* Resources */,
+				C96CBF9F2600FCB300ECEDF8 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C96CBF9A2600FCB300ECEDF8 /* PBXTargetDependency */,
+			);
+			name = SOCKETDEMO_0315;
+			productName = SOCKETDEMO_0315;
+			productReference = C9EDE1C325FF8DF800BB8B48 /* SOCKETDEMO_0315.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C9EDE1BB25FF8DF800BB8B48 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					C96CBF902600FCB300ECEDF8 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					C9EDE1C225FF8DF800BB8B48 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = C9EDE1BE25FF8DF800BB8B48 /* Build configuration list for PBXProject "SOCKETDEMO_0315" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C9EDE1BA25FF8DF800BB8B48;
+			productRefGroup = C9EDE1C425FF8DF800BB8B48 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C9EDE1C225FF8DF800BB8B48 /* SOCKETDEMO_0315 */,
+				C96CBF902600FCB300ECEDF8 /* Replaykit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C96CBF8F2600FCB300ECEDF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9EDE1C125FF8DF800BB8B48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9EDE1D625FF8DFA00BB8B48 /* LaunchScreen.storyboard in Resources */,
+				C9EDE1D325FF8DFA00BB8B48 /* Assets.xcassets in Resources */,
+				C9EDE1D125FF8DF800BB8B48 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		041B0F9B415AE206491975D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Replaykit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B8101295070DC1424090313 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SOCKETDEMO_0315-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C96CBF8D2600FCB300ECEDF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C96CBFA62600FD0800ECEDF8 /* ServiceSocket.m in Sources */,
+				C96CBFDB260194BD00ECEDF8 /* RongRTCCodec.m in Sources */,
+				C96CBFE4260194CB00ECEDF8 /* RongRTCVideoDecoder.mm in Sources */,
+				C96CBFD8260194BA00ECEDF8 /* helpers.mm in Sources */,
+				C96CBFE1260194C800ECEDF8 /* RongRTCVideoEncoderSettings.m in Sources */,
+				C96CBFAC2600FD0D00ECEDF8 /* NSString+IPAddress.m in Sources */,
+				C96CBFEA2601953400ECEDF8 /* ReplaykitCodec.m in Sources */,
+				C99D785926089D0F00C8EDCE /* NMLRPStreamNode.m in Sources */,
+				C96CBFDE260194C400ECEDF8 /* RongRTCVideoEncoder.mm in Sources */,
+				C96CBF972600FCB300ECEDF8 /* SampleHandler.m in Sources */,
+				C96CBFB92600FE7600ECEDF8 /* ReplaykitSendSocket.m in Sources */,
+				C96CBFA92600FD0B00ECEDF8 /* ClientSocket.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9EDE1BF25FF8DF800BB8B48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C96CBF812600E64600ECEDF8 /* ServiceSocket.m in Sources */,
+				C99D785C26089D1400C8EDCE /* NMLRPStreamNode.m in Sources */,
+				C9EDE1CE25FF8DF800BB8B48 /* ViewController.m in Sources */,
+				C96CBFD5260194AD00ECEDF8 /* RongRTCVideoDecoder.mm in Sources */,
+				C9EDE1C825FF8DF800BB8B48 /* AppDelegate.m in Sources */,
+				C9EDE1D925FF8DFA00BB8B48 /* main.m in Sources */,
+				C96CBFD4260194AD00ECEDF8 /* RongRTCVideoEncoderSettings.m in Sources */,
+				C9EDE1CB25FF8DF800BB8B48 /* SceneDelegate.m in Sources */,
+				C96CBF862600E6FA00ECEDF8 /* ClientSocket.m in Sources */,
+				C9D542AD262858E700B3FE46 /* NMLCompress.m in Sources */,
+				C96CBFD1260194AD00ECEDF8 /* RongRTCCodec.m in Sources */,
+				C96CBFD2260194AD00ECEDF8 /* helpers.mm in Sources */,
+				C96CBFD3260194AD00ECEDF8 /* RongRTCVideoEncoder.mm in Sources */,
+				C96CBF8B2600E82900ECEDF8 /* NSString+IPAddress.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C96CBF9A2600FCB300ECEDF8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C96CBF902600FCB300ECEDF8 /* Replaykit */;
+			targetProxy = C96CBF992600FCB300ECEDF8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C9EDE1CF25FF8DF800BB8B48 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9EDE1D025FF8DF800BB8B48 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C9EDE1D425FF8DFA00BB8B48 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9EDE1D525FF8DFA00BB8B48 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C96CBF9D2600FCB300ECEDF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9F731B2CD5410F206CEE848 /* Pods-Replaykit.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5T2B88VE8U;
+				INFOPLIST_FILE = Replaykit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "NeteaseMusic.SOCKETDEMO-0315.Replaykit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C96CBF9E2600FCB300ECEDF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06715C22406217A39DD41EE5 /* Pods-Replaykit.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5T2B88VE8U;
+				INFOPLIST_FILE = Replaykit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "NeteaseMusic.SOCKETDEMO-0315.Replaykit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C9EDE1DA25FF8DFA00BB8B48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C9EDE1DB25FF8DFA00BB8B48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C9EDE1DD25FF8DFA00BB8B48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9CF1EB3F1F78D4496622C60 /* Pods-SOCKETDEMO_0315.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5T2B88VE8U;
+				INFOPLIST_FILE = SOCKETDEMO_0315/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "NeteaseMusic.SOCKETDEMO-0315";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C9EDE1DE25FF8DFA00BB8B48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CDE40AE36E1904BDC0F440B /* Pods-SOCKETDEMO_0315.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5T2B88VE8U;
+				INFOPLIST_FILE = SOCKETDEMO_0315/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "NeteaseMusic.SOCKETDEMO-0315";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C96CBF9C2600FCB300ECEDF8 /* Build configuration list for PBXNativeTarget "Replaykit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C96CBF9D2600FCB300ECEDF8 /* Debug */,
+				C96CBF9E2600FCB300ECEDF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9EDE1BE25FF8DF800BB8B48 /* Build configuration list for PBXProject "SOCKETDEMO_0315" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9EDE1DA25FF8DFA00BB8B48 /* Debug */,
+				C9EDE1DB25FF8DFA00BB8B48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9EDE1DC25FF8DFA00BB8B48 /* Build configuration list for PBXNativeTarget "SOCKETDEMO_0315" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9EDE1DD25FF8DFA00BB8B48 /* Debug */,
+				C9EDE1DE25FF8DFA00BB8B48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C9EDE1BB25FF8DF800BB8B48 /* Project object */;
+}
