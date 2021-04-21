@@ -11,6 +11,7 @@
 #import "NMLRPStreamNode.h"
 #import "RongRTCVideoDecoder.h"
 #import "ReplaykitCodec.h"
+#import "CLCPlayer.h"
 
 @interface DataCache : NSObject
 
@@ -73,6 +74,8 @@
 
 @property (nonatomic, strong) RongRTCVideoDecoder *codec;
 @property (nonatomic, strong) dispatch_queue_t decodeQueue;
+
+@property (nonatomic) CLCPlayer *showView;
 @end
 
 @implementation ViewController
@@ -90,6 +93,17 @@
     self.serviceSocket.delegate = self;
     [self.serviceSocket startChatServer];
     
+    [self createImageView];
+}
+
+- (void)createImageView {
+    
+    self.showView = [CLCPlayer new];
+    CGFloat width = 100;
+    CGFloat height = [UIScreen mainScreen].bounds.size.height/[UIScreen mainScreen].bounds.size.width * width;
+    self.showView.frame = CGRectMake(100, 100, width, height);
+    
+    [self.view addSubview:self.showView];
 }
 
 
@@ -123,6 +137,7 @@
 - (void)didGetDecodeBuffer:(CVPixelBufferRef)pixelBuffer {
     
     NSLog(@"[Did Decode]%@", pixelBuffer);
+    [self.showView receiveBuffer:pixelBuffer];
 }
 
 
