@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <VideoToolbox/VideoToolbox.h>
-
+#import "RongRTCVideoEncoderSettings.h"
 NS_ASSUME_NONNULL_BEGIN
 @protocol ReplaykitCodecDelegate <NSObject>
 
@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// client 开始编码发给 server
 /// @param sampleBuffer 要编码的 sampleBuffer
 - (void)encodeBuffer:(CMSampleBufferRef)sampleBuffer;
+
++ (RongRTCVideoEncoderSettings *)settings;
 
 @end
 

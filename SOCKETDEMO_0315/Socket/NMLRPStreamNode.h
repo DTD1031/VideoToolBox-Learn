@@ -11,13 +11,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NMLRPStreamFormat : NSObject<NSSecureCoding>
-
+@property (nonatomic, readonly) NSDictionary *formatDict;
 - (instancetype)initWithFormat:(CMFormatDescriptionRef)formatRef;
 @end
 
 
 @interface NMLRPStreamNode : NSObject<NSSecureCoding>
-@property (nonatomic) NMLRPStreamFormat *format;
+
+@property (nonatomic, readonly) NSDictionary *formatDict;
 
 - (instancetype)initWithStreamData:(NSData *)streamData format:(CMFormatDescriptionRef)formatRef;
 

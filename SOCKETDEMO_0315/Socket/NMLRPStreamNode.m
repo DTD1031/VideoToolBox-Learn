@@ -46,6 +46,7 @@
     CFDictionaryRef cfDic = CMFormatDescriptionGetExtensions(formatRef);
     
     NSDictionary *dic = (__bridge NSDictionary *)cfDic;
+    
     NSLog(@"for %@", dic); //附带信息
     
 /*    for {
@@ -114,15 +115,17 @@
 @interface NMLRPStreamNode ()
 
 @property (nonatomic) NSData *frameData;
+@property (nonatomic) NSDictionary *formatDict;
 
 @end
 @implementation NMLRPStreamNode
 - (instancetype)initWithStreamData:(NSData *)streamData format:(CMFormatDescriptionRef)formatRef {
     self = [super init];
     if (self) {
-        NMLRPStreamFormat *format = [[NMLRPStreamFormat alloc] initWithFormat:formatRef];
 
-        self.format = format;
+        CFDictionaryRef cfDic = CMFormatDescriptionGetExtensions(formatRef);
+        self.formatDict = (__bridge NSDictionary *)cfDic;
+        NSLog(@"for! %@", self.formatDict); //附带信息
         self.frameData = streamData;
     }
     return self;
@@ -131,11 +134,11 @@
 - (CMSampleBufferRef)getSampleBuffer {
     
     CVPixelBufferRef pixBuf;
-    CVReturn result = CVPixelBufferCreate(NULL, 886, 1918, self.format.mediaType, (__bridge CFDictionaryRef)self.format.extensions, &pixBuf);
-    if (result != kCVReturnSuccess) {
-        return nil;
-    }
-    
+//    CVReturn result = CVPixelBufferCreate(NULL, 886, 1918, self.format.mediaType, (__bridge CFDictionaryRef)self.format.extensions, &pixBuf);
+//    if (result != kCVReturnSuccess) {
+//        return nil;
+//    }
+//
 //    pixelbuffer
 #warning TODO:将data及format重新组装为samplebuffer
     return nil;
@@ -143,15 +146,15 @@
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.frameData forKey:@"frameData"];
-//    [coder encodeObject:self.format forKey:@"format"];
+    [coder encodeObject:self.formatDict forKey:@"format"];
 }
 
 - (nullable instancetype)initWithCoder:(NSCoder *)coder {
 
     self = [super init];
     if (self) {
-        self.format = [coder decodeObjectForKey:@"format"];
-//        self.frameData = [coder decodeObjectForKey:@"frameData"];
+        self.formatDict = [coder decodeObjectForKey:@"format"];
+        self.frameData = [coder decodeObjectForKey:@"frameData"];
     }
     return self;
 }

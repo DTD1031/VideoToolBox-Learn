@@ -7,7 +7,6 @@
 
 #import "ReplaykitCodec.h"
 #import "RongRTCVideoEncoder.h"
-#import "RongRTCVideoEncoderSettings.h"
 
 @interface ReplaykitCodec ()<RongRTCCodecProtocol>
 
@@ -30,7 +29,7 @@
 }
 
 - (void)setup {
-    self.ready = [self.encoder configWithSettings:[self settings] onQueue:_encodeQueue];
+    self.ready = [self.encoder configWithSettings:[ReplaykitCodec settings] onQueue:_encodeQueue];
     NSLog(@"ready ? %i", self.ready);
 }
 
@@ -38,15 +37,31 @@
     [self.encoder encode:sampleBuffer];
 }
 
-- (RongRTCVideoEncoderSettings *)settings {
++ (RongRTCVideoEncoderSettings *)settings {
     
     RongRTCVideoEncoderSettings *settings = [[RongRTCVideoEncoderSettings alloc] init];
-    settings.width = 720;
-    settings.height = 1280;
-    settings.startBitrate = 300;
+    settings.width = 886;
+    settings.height = 1918;
+    settings.startBitrate = 1500*1024;
     settings.maxFramerate = 30;
-    settings.minBitrate = 1000;
+    settings.minBitrate = 900*1024;
     
+//    <CMVideoFormatDescription 0x28108b300 [0x1d4885b20]> {
+//        mediaType:'vide'
+//        mediaSubType:'420f'
+//        mediaSpecific: {
+//            codecType: '420f'        dimensions: 886 x 1918
+//        }
+//        extensions: {{
+//        CVBytesPerRow = 1348;
+//        CVImageBufferChromaLocationBottomField = Left;
+//        CVImageBufferChromaLocationTopField = Left;
+//        CVImageBufferColorPrimaries = "ITU_R_709_2";
+//        CVImageBufferTransferFunction = "IEC_sRGB";
+//        CVImageBufferYCbCrMatrix = "ITU_R_709_2";
+//        Version = 2;
+//    }}
+//    }
     return settings;
 }
 

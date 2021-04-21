@@ -9,6 +9,8 @@
 #import <GCDAsyncSocket.h>
 #import "NSString+IPAddress.h"
 
+#import "CLCPacketer.h"
+
 @interface ClientSocket ()<GCDAsyncSocketDelegate>
 {
      GCDAsyncSocket *_clientSocket;
@@ -36,7 +38,10 @@
 }
 
 - (void)sendData:(NSData *)data {
-    [_clientSocket writeData:data withTimeout:-1 tag:0];
+    
+    NSData *packet = [CLCPacketer packetData:data];
+    NSLog(@"packet -> %@", packet);
+    [_clientSocket writeData:packet withTimeout:-1 tag:0];
 }
 
 #pragma mark -socket的代理
@@ -46,9 +51,6 @@
 -(void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port{
     //连接成功
     NSLog(@"Client %s",__func__);
-//    NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(sendData) userInfo:nil repeats:YES];
-//    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(debugSend) userInfo:nil repeats:YES];
-//    self.timer = timer;
     [self connectComplete:YES];
 }
 

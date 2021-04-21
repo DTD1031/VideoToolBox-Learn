@@ -7,6 +7,7 @@
 
 #import "ServiceSocket.h"
 #import <GCDAsyncSocket.h>
+#import "CLCDataCache.h"
 
 @interface ServiceSocket ()<GCDAsyncSocketDelegate>
 {
@@ -14,6 +15,14 @@
 }
 
 @property(strong,nonatomic)NSMutableArray *clientSocket;
+
+@property (nonatomic) NSDictionary *currentHeader; //头信息，下一个数据按这个头来拆
+@property (nonatomic) NSMutableData *cache; //缓存的数据
+
+//@property (nonatomic) CLCDataCache *cache;
+
+@property (nonatomic) dispatch_queue_t receiveQueue;
+
 @end
 @implementation ServiceSocket
 
@@ -23,7 +32,12 @@
         
         _clientSocket = [NSMutableArray array];
             //创建服务端的socket，注意这里的是初始化的同时已经指定了delegate
-        _serverSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
+        
+        _receiveQueue = dispatch_queue_create("com.serviceSocket.queue", DISPATCH_QUEUE_SERIAL);
+        _serverSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:_receiveQueue];
+        
+        _cache = [NSMutableData new];
+//        _cache = [[CLCDataCache alloc] init];
     }
     return self;
 }
@@ -46,52 +60,70 @@
     [self.clientSocket addObject:newSocket];
     
     //newSocket为客户端的Socket。这里读取数据
-    [newSocket readDataWithTimeout:-1 tag:100];
+    [self readData:newSocket];
 }
 
 #pragma mark 服务器写数据给客户端
 -(void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag{
     NSLog(@"Server %s",__func__);
-    [sock readDataWithTimeout:-1 tag:100];
+    
+    [self readData:sock];
 }
 
 #pragma mark 接收客户端传递过来的数据
 -(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag{
     //sock为客户端的socket
-    NSLog(@"Server 客户端的socket %p",sock);
     //接收到数据
-    NSString *receiverStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"Server receiverStr :%@",receiverStr);
-    // 把回车和换行字符去掉，接收到的字符串有时候包括这2个，导致判断quit指令的时候判断不相等
-    receiverStr = [receiverStr stringByReplacingOccurrencesOfString:@"\r" withString:@""];
-    receiverStr = [receiverStr stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+//        //断开连接
+//        [sock disconnect];
+//        //移除socket
+//        [self.clientSocket removeObject:sock];
+    //----拆包
     
-    //判断是登录指令还是发送聊天数据的指令。这些指令都是自定义的
-    //登录指令
-    if([receiverStr hasPrefix:@"iam:"]){        // 获取用户名
-        NSString *user = [receiverStr componentsSeparatedByString:@":"][1];
-        // 响应给客户端的数据
-        NSString *respStr = [user stringByAppendingString:@"has joined"];
-        [sock writeData:[respStr dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:0];
+    if (self.currentHeader) {
+      //读数据
+        NSUInteger totalLength = [[self.currentHeader objectForKey:@"length"] unsignedIntegerValue];
+        NSUInteger lengthToReceive = totalLength - self.cache.length;
+        if (data.length > lengthToReceive) {
+            //数据长度超过header定义的长度，拼接
+            NSData *body = [data subdataWithRange:NSMakeRange(0, lengthToReceive)];
+            [self.cache appendData:body];
+
+            //拼接完了取剩下数据作为header
+            NSData *nextHeaderData = [data subdataWithRange:NSMakeRange(lengthToReceive, data.length - lengthToReceive)];
+            NSError *err;
+            NSDictionary *header = [NSJSONSerialization JSONObjectWithData:nextHeaderData options:NSJSONReadingMutableContainers error:&err];
+            if (err) {
+                NSAssert(NO, @"error by load next header");
+            }
+            self.currentHeader = header;
+        } else {
+
+            //没那么长，直接拼接
+            [self.cache appendData:data];
+        }
+
+        
+        if (totalLength == self.cache.length) {
+            //长度足够
+            if ([self.delegate respondsToSelector:@selector(service:receiveData:)]) {
+//                [self.delegate service:self receiveData:[self.cache outputData]];
+                [self.delegate service:self receiveData:self.cache];
+            }
+//            [self.cache cleanCache];
+            self.cache = [NSMutableData new];
+        }
+        
+    } else {
+        NSError *err;
+        NSDictionary *header = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
+        self.currentHeader = header;
+        if (err) {
+            NSAssert(NO, @"error by load first header");
+        }
     }
-    //聊天指令
-    if ([receiverStr hasPrefix:@"msg:"]) {
-        //截取聊天消息
-        NSString *msg = [receiverStr componentsSeparatedByString:@":"][1];
-        [sock writeData:[msg dataUsingEncoding:NSUTF8StringEncoding] withTimeout:-1 tag:0];
-    }
-    //quit指令
-    if ([receiverStr isEqualToString:@"quit"]) {
-        //断开连接
-        [sock disconnect];
-        //移除socket
-        [self.clientSocket removeObject:sock];
-    }
-    NSLog(@"Server %s",__func__);
-    
-    if ([self.delegate respondsToSelector:@selector(service:receiveData:)]) {
-        [self.delegate service:self receiveData:data];
-    }
+
+    //------
     
     NSString *feedbackString = @"back";
     // 响应给客户端的数据
@@ -101,6 +133,14 @@
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(nullable NSError *)err {
     
     NSLog(@"Server %s",__func__);
+}
+
+
+#pragma mark - 拆包
+
+- (void)readData:(GCDAsyncSocket *)socket {
+    
+    [socket readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:100];
 }
 
 

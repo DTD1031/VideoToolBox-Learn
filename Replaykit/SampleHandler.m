@@ -48,8 +48,12 @@
         case RPSampleBufferTypeVideo:
             // Handle video sample buffer
             if (self.encodec.ready) {
-//                [self.encodec encodeBuffer:sampleBuffer];
-                [self.clientSocket sendSampleBuffer:sampleBuffer];
+                [self.encodec encodeBuffer:sampleBuffer];
+                
+                CMFormatDescriptionRef formatRef = CMSampleBufferGetFormatDescription(sampleBuffer);
+                
+                NSLog(@"-->->-> %@",formatRef);
+//                [self.clientSocket sendSampleBuffer:sampleBuffer];
             }
             break;
         case RPSampleBufferTypeAudioApp:

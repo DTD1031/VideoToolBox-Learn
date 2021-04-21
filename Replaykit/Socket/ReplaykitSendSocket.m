@@ -46,15 +46,18 @@
     NMLRPStreamNode *node = [[NMLRPStreamNode alloc] initWithStreamData:data format:formatRef];
     NSError *error;
     NSData *archiveData = [NSKeyedArchiver archivedDataWithRootObject:node requiringSecureCoding:YES error:&error];
-    
-    NSSet *classSet = [NSSet setWithArray:@[[NSDictionary class], [NMLRPStreamFormat class], [NMLRPStreamNode class]]];
-    NMLRPStreamNode *decodeNode = [NSKeyedUnarchiver unarchivedObjectOfClasses:classSet fromData:archiveData error:&error];
-
-    if (!error) {
-        NSLog(@"unarch %@", decodeNode);
-        [self appendData:archiveData];
+    if (error) {
+        NSLog(@"archiveError ! %@", error);
+        return;
     } else {
-        NSLog(@"error! %@", error);
+        NSLog(@"archive Successed");
+    }
+
+    if (error) {
+        NSLog(@"unarchive error! %@", error);
+
+    } else {
+        [self appendData:archiveData];
     }
 }
 
@@ -81,7 +84,7 @@
 
     if (waitForData) {
         NSLog(@"wait -- ");
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self sendData];
         });
     }

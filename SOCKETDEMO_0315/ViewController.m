@@ -9,11 +9,70 @@
 #import "ServiceSocket.h"
 #import "ClientSocket.h"
 #import "NMLRPStreamNode.h"
+#import "RongRTCVideoDecoder.h"
+#import "ReplaykitCodec.h"
 
-@interface ViewController ()<ServiceSocketDelegate>
+@interface DataCache : NSObject
+
+@property (nonatomic) NSMutableData *cache;
+@end
+
+@implementation DataCache
+
+- (instancetype)init {
+    self = [super init];
+    if (self){
+        self.cache = [[NSMutableData alloc] init];
+    }
+    return self;
+}
+
+- (void)receiveData:(NSData *)data {
+    if (![self checkData]) {
+        [self.cache appendData:data];
+    }
+}
+
+- (BOOL)checkData {
+    
+    NSLog(@"rcv --> %ld", self.cache.length);
+    
+    NSError *error;
+    NSSet *classSet = [NSSet setWithArray:@[[NSDictionary class],
+                                            [NMLRPStreamFormat class],
+                                            [NMLRPStreamNode class],
+                                            [NSData class]]];
+
+    NMLRPStreamNode *decodeNode = [NSKeyedUnarchiver unarchivedObjectOfClasses:classSet fromData:self.cache error:&error];
+
+    if (!error) {
+        NSLog(@"OK! --> %@", decodeNode);
+    } else {
+        NSLog(@"XXX --> %@", error);
+    }
+    
+    if (!error) {
+        self.cache = [NSMutableData new];
+        [self output:decodeNode];
+    }
+    
+    return nil == error;
+    
+}
+
+- (void)output:(id)output {
+    NSLog(@"out put --> %@",output);
+}
+
+@end
+
+@interface ViewController ()<ServiceSocketDelegate, RongRTCCodecProtocol>
 
 @property(strong, nonatomic) ServiceSocket *serviceSocket;
 @property(strong, nonatomic) ClientSocket *clientSocket;
+
+@property (nonatomic, strong) RongRTCVideoDecoder *codec;
+@property (nonatomic, strong) dispatch_queue_t decodeQueue;
 @end
 
 @implementation ViewController
@@ -21,34 +80,50 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.codec = [[RongRTCVideoDecoder alloc] init];
+    self.codec.delegate = self;
+    RongRTCVideoEncoderSettings *settings = [ReplaykitCodec settings];
+    _decodeQueue = dispatch_queue_create("com.Replaykit.decode.queue", DISPATCH_QUEUE_SERIAL);
+    [self.codec configWithSettings:settings onQueue:_decodeQueue];
+    
     self.serviceSocket = [[ServiceSocket alloc] init];
     self.serviceSocket.delegate = self;
     [self.serviceSocket startChatServer];
     
-    
-//    self.clientSocket = [[ClientSocket alloc] init];
-//    [self.clientSocket connectToServer];
 }
 
+
+/*
+ 施工方案：
+ 
+ 问题：一个数据有2.6MB大小，不压缩很难，但应该试一试
+ 
+ */
 - (void)service:(ServiceSocket *)service receiveData:(NSData *)data {
     
     NSLog(@"rcv --> %ld", data.length);
-    
-    NSError *error;
-    NMLRPStreamFormat *node = [NSKeyedUnarchiver unarchivedObjectOfClass:NMLRPStreamFormat.class fromData:data error:&error];
-    if (!error) {
-        NSLog(@"%@", node);
-    } else {
-        NSLog(@"error! %@", error);
-    }
-}
+
+    [self.codec decode:data];
+//    NSError *error;
+//    NSSet *classSet = [NSSet setWithArray:@[[NSDictionary class],
+//                                            [NMLRPStreamFormat class],
+//                                            [NMLRPStreamNode class],
+//                                            [NSData class]]];
 //
-//2021-03-23 14:20:47.614985+0800 SOCKETDEMO_0315[1408:30171] error! Error Domain=NSCocoaErrorDomain Code=4864 "*** -[NSKeyedUnarchiver _initForReadingFromData:error:throwLegacyExceptions:]: incomprehensible archive (0xffffffe7, 0xffffffe7, 0xffffffe7, 0xffffffe7, 0xffffffe7, 0xffffffe8, 0xffffffe8, 0xffffffe8)" UserInfo={NSDebugDescription=*** -[NSKeyedUnarchiver _initForReadingFromData:error:throwLegacyExceptions:]: incomprehensible archive (0xffffffe7, 0xffffffe7, 0xffffffe7, 0xffffffe7, 0xffffffe7, 0xffffffe8, 0xffffffe8, 0xffffffe8)}
+//    NMLRPStreamNode *decodeNode = [NSKeyedUnarchiver unarchivedObjectOfClasses:classSet fromData:data error:&error];
+//
+//    if (!error) {
+//        NSLog(@"OK! --> %@", decodeNode);
+//    } else {
+//        NSLog(@"error! %@", error);
+//    }
+//    NSLog(@"OK!!!");
+}
+
+- (void)didGetDecodeBuffer:(CVPixelBufferRef)pixelBuffer {
+    
+    NSLog(@"[Did Decode]%@", pixelBuffer);
+}
+
 
 @end
-
-//
-//error! Error Domain=NSCocoaErrorDomain Code=4864 "value for key 'extensions' was of unexpected class 'NSDictionary (0x1e13831d8) [/System/Library/Frameworks/CoreFoundation.framework]'. Allowed classes are '{(
-//    "NMLRPStreamFormat (0x1003c0548) [/private/var/containers/Bundle/Application/AD39D3BA-B2E4-474B-AEA5-41DA1C31BF64/SOCKETDEMO_0315.app]"
-//)}'." UserInfo={NSDebugDescription=value for key 'extensions' was of unexpected class 'NSDictionary (0x1e13831d8) [/System/Library/Frameworks/CoreFoundation.framework]'. Allowed classes are '{(
-//    "NMLRPStreamFormat (0x1003c0548)
