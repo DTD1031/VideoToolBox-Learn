@@ -17,8 +17,18 @@
 }
 
 @property (nonatomic) NSTimer *timer;
+@property (nonatomic) NSInteger tag;
 @end
+
 @implementation ClientSocket
+
+- (instancetype)initWithTag:(NSInteger)tag {
+    self = [super init];
+    if (self) {
+        self.tag = tag;
+    }
+    return self;
+}
 
 - (void) connectToServer{
     //1.主机与端口号
@@ -41,7 +51,7 @@
     
     NSData *packet = [CLCPacketer packetData:data];
     NSLog(@"packet -> %@", packet);
-    [_clientSocket writeData:packet withTimeout:-1 tag:0];
+    [_clientSocket writeData:packet withTimeout:-1 tag:_tag];
 }
 
 #pragma mark -socket的代理

@@ -42,7 +42,7 @@
     return self;
 }
 
-- (void)startChatServer {
+- (void)startService {
     //打开监听端口
     NSError *err;
     [_serverSocket acceptOnPort:12345 error:&err];
@@ -52,6 +52,7 @@
         NSLog(@"Server 服务开启失败");
     }
 }
+
 #pragma mark 有客户端建立连接的时候调用
 -(void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket{
     //sock为服务端的socket，服务端的socket只负责客户端的连接，不负责数据的读取。newSocket为客户端的socket    NSLog(@"服务端的socket %p 客户端的socket %p",sock,newSocket);

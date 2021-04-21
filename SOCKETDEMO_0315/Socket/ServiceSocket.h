@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ServiceSocket : NSObject
 
 @property (nonatomic, weak) id <ServiceSocketDelegate>delegate;
-- (void)startChatServer;
+- (void)startService;
 @end
 
 NS_ASSUME_NONNULL_END

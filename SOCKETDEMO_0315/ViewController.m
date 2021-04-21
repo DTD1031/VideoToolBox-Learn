@@ -70,7 +70,6 @@
 @interface ViewController ()<ServiceSocketDelegate, RongRTCCodecProtocol>
 
 @property(strong, nonatomic) ServiceSocket *serviceSocket;
-@property(strong, nonatomic) ClientSocket *clientSocket;
 
 @property (nonatomic, strong) RongRTCVideoDecoder *codec;
 @property (nonatomic, strong) dispatch_queue_t decodeQueue;
@@ -91,7 +90,7 @@
     
     self.serviceSocket = [[ServiceSocket alloc] init];
     self.serviceSocket.delegate = self;
-    [self.serviceSocket startChatServer];
+    [self.serviceSocket startService];
     
     [self createImageView];
 }
@@ -118,20 +117,6 @@
     NSLog(@"rcv --> %ld", data.length);
 
     [self.codec decode:data];
-//    NSError *error;
-//    NSSet *classSet = [NSSet setWithArray:@[[NSDictionary class],
-//                                            [NMLRPStreamFormat class],
-//                                            [NMLRPStreamNode class],
-//                                            [NSData class]]];
-//
-//    NMLRPStreamNode *decodeNode = [NSKeyedUnarchiver unarchivedObjectOfClasses:classSet fromData:data error:&error];
-//
-//    if (!error) {
-//        NSLog(@"OK! --> %@", decodeNode);
-//    } else {
-//        NSLog(@"error! %@", error);
-//    }
-//    NSLog(@"OK!!!");
 }
 
 - (void)didGetDecodeBuffer:(CVPixelBufferRef)pixelBuffer {

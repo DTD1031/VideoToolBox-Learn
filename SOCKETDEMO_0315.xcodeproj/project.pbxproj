@@ -16,6 +16,8 @@
 		C95A6E29262FCBC00076391C /* CLCDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A6E25262FC9700076391C /* CLCDataCache.m */; };
 		C95A6E2C262FFFE00076391C /* ReplaykitCodec.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFE92601953400ECEDF8 /* ReplaykitCodec.m */; };
 		C95A749426301D790076391C /* CLCPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A749326301D780076391C /* CLCPlayer.m */; };
+		C95A749A263021780076391C /* CLCHostReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A7499263021780076391C /* CLCHostReceiver.m */; };
+		C95A74A1263026D10076391C /* CLCDecodeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A74A0263026D10076391C /* CLCDecodeHelper.m */; };
 		C96CBF812600E64600ECEDF8 /* ServiceSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBF802600E64600ECEDF8 /* ServiceSocket.m */; };
 		C96CBF862600E6FA00ECEDF8 /* ClientSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBF852600E6FA00ECEDF8 /* ClientSocket.m */; };
 		C96CBF8B2600E82900ECEDF8 /* NSString+IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBF8A2600E82900ECEDF8 /* NSString+IPAddress.m */; };
@@ -84,6 +86,11 @@
 		C95A6E25262FC9700076391C /* CLCDataCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLCDataCache.m; sourceTree = "<group>"; };
 		C95A749226301D780076391C /* CLCPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLCPlayer.h; sourceTree = "<group>"; };
 		C95A749326301D780076391C /* CLCPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLCPlayer.m; sourceTree = "<group>"; };
+		C95A7498263021780076391C /* CLCHostReceiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLCHostReceiver.h; sourceTree = "<group>"; };
+		C95A7499263021780076391C /* CLCHostReceiver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLCHostReceiver.m; sourceTree = "<group>"; };
+		C95A749F263026D10076391C /* CLCDecodeHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLCDecodeHelper.h; sourceTree = "<group>"; };
+		C95A74A0263026D10076391C /* CLCDecodeHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLCDecodeHelper.m; sourceTree = "<group>"; };
+		C95A74A4263027E70076391C /* CLCDecoderProvideDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLCDecoderProvideDelegate.h; sourceTree = "<group>"; };
 		C96CBF7F2600E64600ECEDF8 /* ServiceSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceSocket.h; sourceTree = "<group>"; };
 		C96CBF802600E64600ECEDF8 /* ServiceSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceSocket.m; sourceTree = "<group>"; };
 		C96CBF842600E6FA00ECEDF8 /* ClientSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientSocket.h; sourceTree = "<group>"; };
@@ -186,6 +193,34 @@
 				C95A749326301D780076391C /* CLCPlayer.m */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		C95A74972630215A0076391C /* ComponentForReplaykit */ = {
+			isa = PBXGroup;
+			children = (
+				C95A74A6263028CA0076391C /* SocketService */,
+				C95A74A5263028B50076391C /* Decoder */,
+				C95A74A4263027E70076391C /* CLCDecoderProvideDelegate.h */,
+				C95A7498263021780076391C /* CLCHostReceiver.h */,
+				C95A7499263021780076391C /* CLCHostReceiver.m */,
+			);
+			path = ComponentForReplaykit;
+			sourceTree = "<group>";
+		};
+		C95A74A5263028B50076391C /* Decoder */ = {
+			isa = PBXGroup;
+			children = (
+				C95A749F263026D10076391C /* CLCDecodeHelper.h */,
+				C95A74A0263026D10076391C /* CLCDecodeHelper.m */,
+			);
+			path = Decoder;
+			sourceTree = "<group>";
+		};
+		C95A74A6263028CA0076391C /* SocketService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SocketService;
 			sourceTree = "<group>";
 		};
 		C96CBF832600E64B00ECEDF8 /* Socket */ = {
@@ -301,6 +336,7 @@
 		C9EDE1C525FF8DF800BB8B48 /* SOCKETDEMO_0315 */ = {
 			isa = PBXGroup;
 			children = (
+				C95A74972630215A0076391C /* ComponentForReplaykit */,
 				C95A749126301D690076391C /* Player */,
 				C9D542AA262858D600B3FE46 /* Compress */,
 				C96CBFC3260194AD00ECEDF8 /* Codec */,
@@ -508,6 +544,7 @@
 				C96CBFD5260194AD00ECEDF8 /* RongRTCVideoDecoder.mm in Sources */,
 				C9EDE1C825FF8DF800BB8B48 /* AppDelegate.m in Sources */,
 				C9EDE1D925FF8DFA00BB8B48 /* main.m in Sources */,
+				C95A749A263021780076391C /* CLCHostReceiver.m in Sources */,
 				C95A6E2C262FFFE00076391C /* ReplaykitCodec.m in Sources */,
 				C96CBFD4260194AD00ECEDF8 /* RongRTCVideoEncoderSettings.m in Sources */,
 				C9EDE1CB25FF8DF800BB8B48 /* SceneDelegate.m in Sources */,
@@ -518,6 +555,7 @@
 				C96CBFD1260194AD00ECEDF8 /* RongRTCCodec.m in Sources */,
 				C96CBFD2260194AD00ECEDF8 /* helpers.mm in Sources */,
 				C96CBFD3260194AD00ECEDF8 /* RongRTCVideoEncoder.mm in Sources */,
+				C95A74A1263026D10076391C /* CLCDecodeHelper.m in Sources */,
 				C96CBF8B2600E82900ECEDF8 /* NSString+IPAddress.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
