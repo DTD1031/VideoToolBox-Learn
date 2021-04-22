@@ -18,6 +18,8 @@
 		C95A749426301D790076391C /* CLCPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A749326301D780076391C /* CLCPlayer.m */; };
 		C95A749A263021780076391C /* CLCHostReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A7499263021780076391C /* CLCHostReceiver.m */; };
 		C95A74A1263026D10076391C /* CLCDecodeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A74A0263026D10076391C /* CLCDecodeHelper.m */; };
+		C95A74AB263112350076391C /* ServiceSocketConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A74AA263112350076391C /* ServiceSocketConnect.m */; };
+		C95A74B026311A450076391C /* ServiceSocketConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A74AA263112350076391C /* ServiceSocketConnect.m */; };
 		C96CBF812600E64600ECEDF8 /* ServiceSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBF802600E64600ECEDF8 /* ServiceSocket.m */; };
 		C96CBF862600E6FA00ECEDF8 /* ClientSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBF852600E6FA00ECEDF8 /* ClientSocket.m */; };
 		C96CBF8B2600E82900ECEDF8 /* NSString+IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBF8A2600E82900ECEDF8 /* NSString+IPAddress.m */; };
@@ -91,6 +93,8 @@
 		C95A749F263026D10076391C /* CLCDecodeHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLCDecodeHelper.h; sourceTree = "<group>"; };
 		C95A74A0263026D10076391C /* CLCDecodeHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLCDecodeHelper.m; sourceTree = "<group>"; };
 		C95A74A4263027E70076391C /* CLCDecoderProvideDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLCDecoderProvideDelegate.h; sourceTree = "<group>"; };
+		C95A74A9263112350076391C /* ServiceSocketConnect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceSocketConnect.h; sourceTree = "<group>"; };
+		C95A74AA263112350076391C /* ServiceSocketConnect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceSocketConnect.m; sourceTree = "<group>"; };
 		C96CBF7F2600E64600ECEDF8 /* ServiceSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceSocket.h; sourceTree = "<group>"; };
 		C96CBF802600E64600ECEDF8 /* ServiceSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceSocket.m; sourceTree = "<group>"; };
 		C96CBF842600E6FA00ECEDF8 /* ClientSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientSocket.h; sourceTree = "<group>"; };
@@ -168,11 +172,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C94ADE4E2604ADEC00748D67 /* VideoFormat */ = {
+		C94ADE4E2604ADEC00748D67 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				C96CBF7F2600E64600ECEDF8 /* ServiceSocket.h */,
+				C96CBF802600E64600ECEDF8 /* ServiceSocket.m */,
+				C95A74A9263112350076391C /* ServiceSocketConnect.h */,
+				C95A74AA263112350076391C /* ServiceSocketConnect.m */,
 			);
-			path = VideoFormat;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		C95A67B4262EF7C60076391C /* packet */ = {
@@ -229,9 +237,7 @@
 				C95A67B4262EF7C60076391C /* packet */,
 				C99D785726089D0F00C8EDCE /* NMLRPStreamNode.h */,
 				C99D785826089D0F00C8EDCE /* NMLRPStreamNode.m */,
-				C94ADE4E2604ADEC00748D67 /* VideoFormat */,
-				C96CBF7F2600E64600ECEDF8 /* ServiceSocket.h */,
-				C96CBF802600E64600ECEDF8 /* ServiceSocket.m */,
+				C94ADE4E2604ADEC00748D67 /* Service */,
 				C96CBF842600E6FA00ECEDF8 /* ClientSocket.h */,
 				C96CBF852600E6FA00ECEDF8 /* ClientSocket.m */,
 				C96CBF892600E82900ECEDF8 /* NSString+IPAddress.h */,
@@ -520,6 +526,7 @@
 				C96CBFE4260194CB00ECEDF8 /* RongRTCVideoDecoder.mm in Sources */,
 				C96CBFD8260194BA00ECEDF8 /* helpers.mm in Sources */,
 				C96CBFE1260194C800ECEDF8 /* RongRTCVideoEncoderSettings.m in Sources */,
+				C95A74B026311A450076391C /* ServiceSocketConnect.m in Sources */,
 				C96CBFAC2600FD0D00ECEDF8 /* NSString+IPAddress.m in Sources */,
 				C96CBFEA2601953400ECEDF8 /* ReplaykitCodec.m in Sources */,
 				C99D785926089D0F00C8EDCE /* NMLRPStreamNode.m in Sources */,
@@ -538,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C96CBF812600E64600ECEDF8 /* ServiceSocket.m in Sources */,
+				C95A74AB263112350076391C /* ServiceSocketConnect.m in Sources */,
 				C95A749426301D790076391C /* CLCPlayer.m in Sources */,
 				C99D785C26089D1400C8EDCE /* NMLRPStreamNode.m in Sources */,
 				C9EDE1CE25FF8DF800BB8B48 /* ViewController.m in Sources */,

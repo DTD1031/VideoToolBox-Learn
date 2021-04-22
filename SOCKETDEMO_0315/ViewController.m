@@ -12,6 +12,8 @@
 #import "RongRTCVideoDecoder.h"
 #import "ReplaykitCodec.h"
 #import "CLCPlayer.h"
+#import "CLCHostReceiver.h"
+#import "CLCDecodeHelper.h"
 
 @interface DataCache : NSObject
 
@@ -67,14 +69,16 @@
 
 @end
 
-@interface ViewController ()<ServiceSocketDelegate, RongRTCCodecProtocol>
+@interface ViewController ()<CLCHostReceiverHandlerDelegate>
 
 @property(strong, nonatomic) ServiceSocket *serviceSocket;
 
-@property (nonatomic, strong) RongRTCVideoDecoder *codec;
+@property (nonatomic, strong) CLCDecodeHelper *codec;
 @property (nonatomic, strong) dispatch_queue_t decodeQueue;
 
 @property (nonatomic) CLCPlayer *showView;
+
+@property (nonatomic) CLCHostReceiver *receiver;
 @end
 
 @implementation ViewController
@@ -82,15 +86,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.codec = [[RongRTCVideoDecoder alloc] init];
-    self.codec.delegate = self;
-    RongRTCVideoEncoderSettings *settings = [ReplaykitCodec settings];
-    _decodeQueue = dispatch_queue_create("com.Replaykit.decode.queue", DISPATCH_QUEUE_SERIAL);
-    [self.codec configWithSettings:settings onQueue:_decodeQueue];
+    //设置解码器
+    self.codec = [[CLCDecodeHelper alloc] init];
     
-    self.serviceSocket = [[ServiceSocket alloc] init];
-    self.serviceSocket.delegate = self;
-    [self.serviceSocket startService];
+    //创建获取类
+    self.receiver = [[CLCHostReceiver alloc] initWithProvider:self.codec];
+    self.receiver.delegate = self;
+    
+    //启动，开始获取数据
+    [self.receiver start];
     
     [self createImageView];
 }
@@ -105,23 +109,12 @@
     [self.view addSubview:self.showView];
 }
 
+#pragma mark - CLCHostReceiverHandlerDelegate
 
-/*
- 施工方案：
- 
- 问题：一个数据有2.6MB大小，不压缩很难，但应该试一试
- 
- */
-- (void)service:(ServiceSocket *)service receiveData:(NSData *)data {
-    
-    NSLog(@"rcv --> %ld", data.length);
-
-    [self.codec decode:data];
-}
-
+/// 处理解码后的数据
+/// @param pixelBuffer 解码后的数据
 - (void)didGetDecodeBuffer:(CVPixelBufferRef)pixelBuffer {
     
-    NSLog(@"[Did Decode]%@", pixelBuffer);
     [self.showView receiveBuffer:pixelBuffer];
 }
 

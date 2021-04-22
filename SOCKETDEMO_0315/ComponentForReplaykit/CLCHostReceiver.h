@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL working;
 
 /// 处理数据回调的对象
-@property (nonatomic) id<CLCHostReceiverHandlerDelegate> delegate;
+@property (nonatomic, weak) id<CLCHostReceiverHandlerDelegate> delegate;
 
 ///全村的希望，decode处理者
 - (instancetype)initWithProvider:(id<CLCDecoderProvideDelegate>)provider;

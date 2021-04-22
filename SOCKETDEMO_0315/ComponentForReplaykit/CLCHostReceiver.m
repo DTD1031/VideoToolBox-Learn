@@ -8,17 +8,11 @@
 #import "CLCHostReceiver.h"
 #import "ServiceSocket.h"
 
-
-#import "RongRTCVideoDecoder.h"
-#import "ReplaykitCodec.h"
-
-
-@interface CLCHostReceiver ()<ServiceSocketDelegate>
+@interface CLCHostReceiver ()<ServiceSocketDelegate, ServiceSocketConnectDelegate>
 @property(strong, nonatomic) ServiceSocket *serviceSocket;
 
 ///解码工具
 @property (nonatomic) id<CLCDecoderProvideDelegate>decoder;
-
 
 @end
 
@@ -55,15 +49,18 @@
 }
 
 - (void)stop {
-    
+    [self.serviceSocket closeService];
 }
 
-#pragma mark - SocketService
-- (void)service:(ServiceSocket *)service receiveData:(NSData *)data {
-    
-    NSLog(@"rcv --> %ld", data.length);
+#pragma mark - ServiceSocketDelegate
+- (void)service:(ServiceSocket *)service didCreateNewConnect:(ServiceSocketConnect *)connect {
+    connect.delegate = self;
+}
 
+#pragma mark - ServiceSocketConnectDelegate
+- (void)socketConnect:(ServiceSocketConnect *)connect receiveData:(NSData *)data {
     [self.decoder decode:data];
 }
+
 
 @end

@@ -14,19 +14,19 @@
 
 @interface SampleHandler ()
 
-@property (nonatomic) ReplaykitSendSocket *clientSocket;
+@property (nonatomic) ReplaykitSendSocket *videoClientSocket;
 @property (nonatomic) ReplaykitCodec *encodec;
 @end
 @implementation SampleHandler
 
 - (void)broadcastStartedWithSetupInfo:(NSDictionary<NSString *,NSObject *> *)setupInfo {
     
-    self.clientSocket = [[ReplaykitSendSocket alloc] init];
+    self.videoClientSocket = [[ReplaykitSendSocket alloc] init];
     
     self.encodec = [[ReplaykitCodec alloc] init];
-    self.encodec.delegate = self.clientSocket;
+    self.encodec.delegate = self.videoClientSocket;
     
-    [self.clientSocket connectToServer];
+    [self.videoClientSocket connectToServer];
     // User has requested to start the broadcast. Setup info from the UI extension can be supplied but optional. 
 }
 
@@ -49,11 +49,6 @@
             // Handle video sample buffer
             if (self.encodec.ready) {
                 [self.encodec encodeBuffer:sampleBuffer];
-                
-                CMFormatDescriptionRef formatRef = CMSampleBufferGetFormatDescription(sampleBuffer);
-                
-                NSLog(@"-->->-> %@",formatRef);
-//                [self.clientSocket sendSampleBuffer:sampleBuffer];
             }
             break;
         case RPSampleBufferTypeAudioApp:
