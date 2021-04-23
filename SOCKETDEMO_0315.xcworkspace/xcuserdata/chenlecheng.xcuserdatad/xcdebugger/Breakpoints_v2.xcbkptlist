@@ -71,16 +71,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C73D1AE7-6E18-43AC-B421-56463D3DE818"
+            uuid = "48E42AD6-D7A0-42B5-B23E-E99541A8232C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Replaykit/Socket/ReplaykitSendSocket.m"
+            filePath = "SOCKETDEMO_0315/Socket/Service/ServiceSocket.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "-init"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-socket:didAcceptNewSocket:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "44DDB885-1D54-4520-AB84-B1C652D3C924"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SOCKETDEMO_0315/ComponentForReplaykit/Decoder/CLCDecodeHelper.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-didGetDecodeBuffer:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

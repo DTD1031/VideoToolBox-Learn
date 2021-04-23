@@ -7,7 +7,6 @@
 
 #import "ServiceSocket.h"
 #import <GCDAsyncSocket.h>
-#import "CLCDataCache.h"
 #import "ServiceSocketConnect.h"
 
 @interface ServiceSocket ()<GCDAsyncSocketDelegate>

@@ -7,6 +7,7 @@
 
 #import "CLCHostReceiver.h"
 #import "ServiceSocket.h"
+#import "LocalSocketDefine.h"
 
 @interface CLCHostReceiver ()<ServiceSocketDelegate, ServiceSocketConnectDelegate>
 @property(strong, nonatomic) ServiceSocket *serviceSocket;
@@ -18,25 +19,13 @@
 
 @implementation CLCHostReceiver
 
-- (instancetype)initWithProvider:(id<CLCDecoderProvideDelegate>)decoder {
-    if (self = [super init]) {
-        self.decoder = decoder;
-        [self setupDecoder:decoder];
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _dispatch = [[CLCLocalSocketDispatch alloc] init];
         [self setupSocketService];
     }
     return self;
-}
-
-- (void)setupDecoder:(id<CLCDecoderProvideDelegate>)provider {
-    self.decoder = provider;
-    __weak CLCHostReceiver *weakSelf = self;
-    [self.decoder setup];
-    [self.decoder setCallback:^(CVPixelBufferRef _Nonnull pixelBuffer) {
-        __strong CLCHostReceiver *strongSelf = weakSelf;
-        if ([strongSelf.delegate respondsToSelector:@selector(didGetDecodeBuffer:)]) {
-            [strongSelf.delegate didGetDecodeBuffer:pixelBuffer];
-        }
-    }];
 }
 
 - (void)setupSocketService {
@@ -58,8 +47,11 @@
 }
 
 #pragma mark - ServiceSocketConnectDelegate
-- (void)socketConnect:(ServiceSocketConnect *)connect receiveData:(NSData *)data {
-    [self.decoder decode:data];
+- (void)socketConnect:(ServiceSocketConnect *)connect receiveData:(NSData *)data userInfo:(nonnull NSDictionary *)userInfo {
+
+    NSString *connectId = [userInfo objectForKey:LocalSocketClientUserInfoKeyConnectId];
+    //交由分发模块进行分发
+    [self.dispatch receiveData:data userInfo:userInfo connectId:connectId];
 }
 
 

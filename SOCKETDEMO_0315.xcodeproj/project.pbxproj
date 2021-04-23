@@ -10,10 +10,7 @@
 		50FCDC44B8B84B66098AFF21 /* libPods-Replaykit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C47E2B7F2D6F74FBA4AB68D /* libPods-Replaykit.a */; };
 		9E70898C37189DD3F8104EF6 /* libPods-SOCKETDEMO_0315.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0BFDBE86937DB2F0FB96D89 /* libPods-SOCKETDEMO_0315.a */; };
 		C95A67B7262EF7D50076391C /* CLCPacketer.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A67B6262EF7D50076391C /* CLCPacketer.m */; };
-		C95A67BC262EFC3A0076391C /* NMLCompress.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D542AC262858E700B3FE46 /* NMLCompress.m */; };
 		C95A67BF262EFFD90076391C /* CLCPacketer.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A67B6262EF7D50076391C /* CLCPacketer.m */; };
-		C95A6E26262FC9700076391C /* CLCDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A6E25262FC9700076391C /* CLCDataCache.m */; };
-		C95A6E29262FCBC00076391C /* CLCDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A6E25262FC9700076391C /* CLCDataCache.m */; };
 		C95A6E2C262FFFE00076391C /* ReplaykitCodec.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFE92601953400ECEDF8 /* ReplaykitCodec.m */; };
 		C95A749426301D790076391C /* CLCPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A749326301D780076391C /* CLCPlayer.m */; };
 		C95A749A263021780076391C /* CLCHostReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A7499263021780076391C /* CLCHostReceiver.m */; };
@@ -41,9 +38,8 @@
 		C96CBFE1260194C800ECEDF8 /* RongRTCVideoEncoderSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFCA260194AD00ECEDF8 /* RongRTCVideoEncoderSettings.m */; };
 		C96CBFE4260194CB00ECEDF8 /* RongRTCVideoDecoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFCD260194AD00ECEDF8 /* RongRTCVideoDecoder.mm */; };
 		C96CBFEA2601953400ECEDF8 /* ReplaykitCodec.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFE92601953400ECEDF8 /* ReplaykitCodec.m */; };
-		C99D785926089D0F00C8EDCE /* NMLRPStreamNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C99D785826089D0F00C8EDCE /* NMLRPStreamNode.m */; };
-		C99D785C26089D1400C8EDCE /* NMLRPStreamNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C99D785826089D0F00C8EDCE /* NMLRPStreamNode.m */; };
-		C9D542AD262858E700B3FE46 /* NMLCompress.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D542AC262858E700B3FE46 /* NMLCompress.m */; };
+		C9A8E9B92631781700FAD09C /* ReplaykitSendSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C96CBFB82600FE7600ECEDF8 /* ReplaykitSendSocket.m */; };
+		C9A8E9BF2631805C00FAD09C /* CLCVideoDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A8E9BE2631805C00FAD09C /* CLCVideoDecoder.m */; };
 		C9EDE1C825FF8DF800BB8B48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EDE1C725FF8DF800BB8B48 /* AppDelegate.m */; };
 		C9EDE1CB25FF8DF800BB8B48 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EDE1CA25FF8DF800BB8B48 /* SceneDelegate.m */; };
 		C9EDE1CE25FF8DF800BB8B48 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EDE1CD25FF8DF800BB8B48 /* ViewController.m */; };
@@ -51,6 +47,8 @@
 		C9EDE1D325FF8DFA00BB8B48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9EDE1D225FF8DFA00BB8B48 /* Assets.xcassets */; };
 		C9EDE1D625FF8DFA00BB8B48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9EDE1D425FF8DFA00BB8B48 /* LaunchScreen.storyboard */; };
 		C9EDE1D925FF8DFA00BB8B48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EDE1D825FF8DFA00BB8B48 /* main.m */; };
+		C9F74CEA2632A4CA0077340D /* CLCLocalSocketDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F74CE92632A4CA0077340D /* CLCLocalSocketDispatch.m */; };
+		C9F74CEB2632A4CA0077340D /* CLCLocalSocketDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F74CE92632A4CA0077340D /* CLCLocalSocketDispatch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,8 +82,6 @@
 		B9CF1EB3F1F78D4496622C60 /* Pods-SOCKETDEMO_0315.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOCKETDEMO_0315.debug.xcconfig"; path = "Target Support Files/Pods-SOCKETDEMO_0315/Pods-SOCKETDEMO_0315.debug.xcconfig"; sourceTree = "<group>"; };
 		C95A67B5262EF7D50076391C /* CLCPacketer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLCPacketer.h; sourceTree = "<group>"; };
 		C95A67B6262EF7D50076391C /* CLCPacketer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLCPacketer.m; sourceTree = "<group>"; };
-		C95A6E24262FC9700076391C /* CLCDataCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLCDataCache.h; sourceTree = "<group>"; };
-		C95A6E25262FC9700076391C /* CLCDataCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLCDataCache.m; sourceTree = "<group>"; };
 		C95A749226301D780076391C /* CLCPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLCPlayer.h; sourceTree = "<group>"; };
 		C95A749326301D780076391C /* CLCPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLCPlayer.m; sourceTree = "<group>"; };
 		C95A7498263021780076391C /* CLCHostReceiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLCHostReceiver.h; sourceTree = "<group>"; };
@@ -121,10 +117,8 @@
 		C96CBFD0260194AD00ECEDF8 /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
 		C96CBFE82601953400ECEDF8 /* ReplaykitCodec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplaykitCodec.h; sourceTree = "<group>"; };
 		C96CBFE92601953400ECEDF8 /* ReplaykitCodec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplaykitCodec.m; sourceTree = "<group>"; };
-		C99D785726089D0F00C8EDCE /* NMLRPStreamNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMLRPStreamNode.h; sourceTree = "<group>"; };
-		C99D785826089D0F00C8EDCE /* NMLRPStreamNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMLRPStreamNode.m; sourceTree = "<group>"; };
-		C9D542AB262858E700B3FE46 /* NMLCompress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMLCompress.h; sourceTree = "<group>"; };
-		C9D542AC262858E700B3FE46 /* NMLCompress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMLCompress.m; sourceTree = "<group>"; };
+		C9A8E9BD2631805C00FAD09C /* CLCVideoDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLCVideoDecoder.h; sourceTree = "<group>"; };
+		C9A8E9BE2631805C00FAD09C /* CLCVideoDecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLCVideoDecoder.m; sourceTree = "<group>"; };
 		C9EDE1C325FF8DF800BB8B48 /* SOCKETDEMO_0315.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOCKETDEMO_0315.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9EDE1C625FF8DF800BB8B48 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C9EDE1C725FF8DF800BB8B48 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -138,6 +132,9 @@
 		C9EDE1D725FF8DFA00BB8B48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9EDE1D825FF8DFA00BB8B48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C9F731B2CD5410F206CEE848 /* Pods-Replaykit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Replaykit.debug.xcconfig"; path = "Target Support Files/Pods-Replaykit/Pods-Replaykit.debug.xcconfig"; sourceTree = "<group>"; };
+		C9F74CE82632A4CA0077340D /* CLCLocalSocketDispatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLCLocalSocketDispatch.h; sourceTree = "<group>"; };
+		C9F74CE92632A4CA0077340D /* CLCLocalSocketDispatch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLCLocalSocketDispatch.m; sourceTree = "<group>"; };
+		C9F74CF42632B2190077340D /* LocalSocketDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalSocketDefine.h; sourceTree = "<group>"; };
 		E0BFDBE86937DB2F0FB96D89 /* libPods-SOCKETDEMO_0315.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SOCKETDEMO_0315.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -188,8 +185,6 @@
 			children = (
 				C95A67B5262EF7D50076391C /* CLCPacketer.h */,
 				C95A67B6262EF7D50076391C /* CLCPacketer.m */,
-				C95A6E24262FC9700076391C /* CLCDataCache.h */,
-				C95A6E25262FC9700076391C /* CLCDataCache.m */,
 			);
 			path = packet;
 			sourceTree = "<group>";
@@ -206,11 +201,17 @@
 		C95A74972630215A0076391C /* ComponentForReplaykit */ = {
 			isa = PBXGroup;
 			children = (
-				C95A74A6263028CA0076391C /* SocketService */,
+				C9A8E9B82631776700FAD09C /* ClientSocket */,
+				C9A8E9B12631688C00FAD09C /* tempFile */,
+				C95A74A6263028CA0076391C /* ServiceSocket */,
 				C95A74A5263028B50076391C /* Decoder */,
 				C95A74A4263027E70076391C /* CLCDecoderProvideDelegate.h */,
+				C9A8E9BD2631805C00FAD09C /* CLCVideoDecoder.h */,
+				C9A8E9BE2631805C00FAD09C /* CLCVideoDecoder.m */,
 				C95A7498263021780076391C /* CLCHostReceiver.h */,
 				C95A7499263021780076391C /* CLCHostReceiver.m */,
+				C9F74CE82632A4CA0077340D /* CLCLocalSocketDispatch.h */,
+				C9F74CE92632A4CA0077340D /* CLCLocalSocketDispatch.m */,
 			);
 			path = ComponentForReplaykit;
 			sourceTree = "<group>";
@@ -224,24 +225,24 @@
 			path = Decoder;
 			sourceTree = "<group>";
 		};
-		C95A74A6263028CA0076391C /* SocketService */ = {
+		C95A74A6263028CA0076391C /* ServiceSocket */ = {
 			isa = PBXGroup;
 			children = (
+				C96CBF832600E64B00ECEDF8 /* Socket */,
 			);
-			path = SocketService;
+			path = ServiceSocket;
 			sourceTree = "<group>";
 		};
 		C96CBF832600E64B00ECEDF8 /* Socket */ = {
 			isa = PBXGroup;
 			children = (
 				C95A67B4262EF7C60076391C /* packet */,
-				C99D785726089D0F00C8EDCE /* NMLRPStreamNode.h */,
-				C99D785826089D0F00C8EDCE /* NMLRPStreamNode.m */,
 				C94ADE4E2604ADEC00748D67 /* Service */,
 				C96CBF842600E6FA00ECEDF8 /* ClientSocket.h */,
 				C96CBF852600E6FA00ECEDF8 /* ClientSocket.m */,
 				C96CBF892600E82900ECEDF8 /* NSString+IPAddress.h */,
 				C96CBF8A2600E82900ECEDF8 /* NSString+IPAddress.m */,
+				C9F74CF42632B2190077340D /* LocalSocketDefine.h */,
 			);
 			path = Socket;
 			sourceTree = "<group>";
@@ -249,8 +250,6 @@
 		C96CBF942600FCB300ECEDF8 /* Replaykit */ = {
 			isa = PBXGroup;
 			children = (
-				C96CBFE72601951A00ECEDF8 /* Codec */,
-				C96CBFB62600FE5D00ECEDF8 /* Socket */,
 				C96CBF952600FCB300ECEDF8 /* SampleHandler.h */,
 				C96CBF962600FCB300ECEDF8 /* SampleHandler.m */,
 				C96CBF982600FCB300ECEDF8 /* Info.plist */,
@@ -280,7 +279,8 @@
 				C96CBFD0260194AD00ECEDF8 /* helpers.h */,
 				C96CBFC5260194AD00ECEDF8 /* helpers.mm */,
 			);
-			path = Codec;
+			name = Codec;
+			path = SOCKETDEMO_0315/ComponentForReplaykit/tempFile/Codec;
 			sourceTree = SOURCE_ROOT;
 		};
 		C96CBFC6260194AD00ECEDF8 /* Encoder */ = {
@@ -310,13 +310,21 @@
 			path = Codec;
 			sourceTree = "<group>";
 		};
-		C9D542AA262858D600B3FE46 /* Compress */ = {
+		C9A8E9B12631688C00FAD09C /* tempFile */ = {
 			isa = PBXGroup;
 			children = (
-				C9D542AB262858E700B3FE46 /* NMLCompress.h */,
-				C9D542AC262858E700B3FE46 /* NMLCompress.m */,
+				C96CBFC3260194AD00ECEDF8 /* Codec */,
 			);
-			path = Compress;
+			path = tempFile;
+			sourceTree = "<group>";
+		};
+		C9A8E9B82631776700FAD09C /* ClientSocket */ = {
+			isa = PBXGroup;
+			children = (
+				C96CBFE72601951A00ECEDF8 /* Codec */,
+				C96CBFB62600FE5D00ECEDF8 /* Socket */,
+			);
+			path = ClientSocket;
 			sourceTree = "<group>";
 		};
 		C9EDE1BA25FF8DF800BB8B48 = {
@@ -344,9 +352,6 @@
 			children = (
 				C95A74972630215A0076391C /* ComponentForReplaykit */,
 				C95A749126301D690076391C /* Player */,
-				C9D542AA262858D600B3FE46 /* Compress */,
-				C96CBFC3260194AD00ECEDF8 /* Codec */,
-				C96CBF832600E64B00ECEDF8 /* Socket */,
 				C9EDE1C625FF8DF800BB8B48 /* AppDelegate.h */,
 				C9EDE1C725FF8DF800BB8B48 /* AppDelegate.m */,
 				C9EDE1C925FF8DF800BB8B48 /* SceneDelegate.h */,
@@ -529,14 +534,12 @@
 				C95A74B026311A450076391C /* ServiceSocketConnect.m in Sources */,
 				C96CBFAC2600FD0D00ECEDF8 /* NSString+IPAddress.m in Sources */,
 				C96CBFEA2601953400ECEDF8 /* ReplaykitCodec.m in Sources */,
-				C99D785926089D0F00C8EDCE /* NMLRPStreamNode.m in Sources */,
 				C96CBFDE260194C400ECEDF8 /* RongRTCVideoEncoder.mm in Sources */,
 				C96CBF972600FCB300ECEDF8 /* SampleHandler.m in Sources */,
 				C96CBFB92600FE7600ECEDF8 /* ReplaykitSendSocket.m in Sources */,
-				C95A6E29262FCBC00076391C /* CLCDataCache.m in Sources */,
+				C9F74CEB2632A4CA0077340D /* CLCLocalSocketDispatch.m in Sources */,
 				C95A67BF262EFFD90076391C /* CLCPacketer.m in Sources */,
 				C96CBFA92600FD0B00ECEDF8 /* ClientSocket.m in Sources */,
-				C95A67BC262EFC3A0076391C /* NMLCompress.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,9 +548,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C96CBF812600E64600ECEDF8 /* ServiceSocket.m in Sources */,
+				C9A8E9BF2631805C00FAD09C /* CLCVideoDecoder.m in Sources */,
 				C95A74AB263112350076391C /* ServiceSocketConnect.m in Sources */,
+				C9A8E9B92631781700FAD09C /* ReplaykitSendSocket.m in Sources */,
 				C95A749426301D790076391C /* CLCPlayer.m in Sources */,
-				C99D785C26089D1400C8EDCE /* NMLRPStreamNode.m in Sources */,
 				C9EDE1CE25FF8DF800BB8B48 /* ViewController.m in Sources */,
 				C96CBFD5260194AD00ECEDF8 /* RongRTCVideoDecoder.mm in Sources */,
 				C9EDE1C825FF8DF800BB8B48 /* AppDelegate.m in Sources */,
@@ -555,11 +559,10 @@
 				C95A749A263021780076391C /* CLCHostReceiver.m in Sources */,
 				C95A6E2C262FFFE00076391C /* ReplaykitCodec.m in Sources */,
 				C96CBFD4260194AD00ECEDF8 /* RongRTCVideoEncoderSettings.m in Sources */,
+				C9F74CEA2632A4CA0077340D /* CLCLocalSocketDispatch.m in Sources */,
 				C9EDE1CB25FF8DF800BB8B48 /* SceneDelegate.m in Sources */,
 				C96CBF862600E6FA00ECEDF8 /* ClientSocket.m in Sources */,
-				C95A6E26262FC9700076391C /* CLCDataCache.m in Sources */,
 				C95A67B7262EF7D50076391C /* CLCPacketer.m in Sources */,
-				C9D542AD262858E700B3FE46 /* NMLCompress.m in Sources */,
 				C96CBFD1260194AD00ECEDF8 /* RongRTCCodec.m in Sources */,
 				C96CBFD2260194AD00ECEDF8 /* helpers.mm in Sources */,
 				C96CBFD3260194AD00ECEDF8 /* RongRTCVideoEncoder.mm in Sources */,

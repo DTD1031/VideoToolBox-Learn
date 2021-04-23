@@ -66,13 +66,11 @@
 }
 
 -(void)spsData:(NSData *)sps ppsData:(NSData *)pps{
-    NSLog(@"%@ -> %s", NSStringFromClass(self.class),  __func__);
 
     [self.delegate sendDecodeData:sps];
     [self.delegate sendDecodeData:pps];
 }
 -(void)naluData:(NSData *)naluData{
-    NSLog(@"%@ -> %s", NSStringFromClass(self.class),  __func__);
     [self.delegate sendDecodeData:naluData];
 }
 

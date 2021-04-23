@@ -12,8 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class ServiceSocketConnect;
 @protocol ServiceSocketConnectDelegate <NSObject>
-///获取到新的数据
-- (void)socketConnect:(ServiceSocketConnect *)connect receiveData:(NSData *)data;
+///获取数据回调
+- (void)socketConnect:(ServiceSocketConnect *)connect
+          receiveData:(NSData *)data
+             userInfo:(NSDictionary *)userInfo;
 @end
 
 @interface ServiceSocketConnect : NSObject

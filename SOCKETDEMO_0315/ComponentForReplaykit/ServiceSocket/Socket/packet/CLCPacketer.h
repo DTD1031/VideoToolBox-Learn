@@ -16,7 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface CLCPacketer : NSObject
 
-+ (NSData *)packetData:(NSData *)data;
+
+/// 打包数据
+/// @param data 数据
+/// @param userInfo 携带的用户参数
++ (NSData *)packetData:(NSData *)data
+              userInfo:(NSDictionary * _Nullable)userInfo;
 @end
 
 NS_ASSUME_NONNULL_END

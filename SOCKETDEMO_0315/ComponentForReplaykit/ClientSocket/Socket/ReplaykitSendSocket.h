@@ -12,9 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ReplaykitSendSocket : ClientSocket<ReplaykitCodecDelegate>
 
+@property (nonatomic) NSDictionary *userInfo;
+
+- (instancetype)initWithConnectId:(NSString *)connectId;
+
 - (void)appendData:(NSData *)dataToSend;
 
-- (void)sendSampleBuffer:(CMSampleBufferRef)source;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -18,7 +18,7 @@
     return self;
 }
 
-+ (NSData *)packetData:(NSData *)data {
++ (NSData *)packetData:(NSData *)data userInfo:(NSDictionary * _Nullable)userInfo {
     
     if (data.length == 0) {
         return data;
@@ -26,9 +26,13 @@
     
     NSUInteger size = data.length;
     
-    NSDictionary *header = @{
-        @"length":@(size)
-    };
+    NSMutableDictionary *header;
+    if (userInfo) {
+        header = userInfo.mutableCopy;
+    } else {
+        header = @{}.mutableCopy;
+    }
+    [header setObject:@(size) forKey:@"length"];
     
     NSData *headerData = [NSJSONSerialization dataWithJSONObject:header options:NSJSONWritingPrettyPrinted error:nil];
     

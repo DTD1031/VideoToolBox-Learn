@@ -8,26 +8,16 @@
 #import <Foundation/Foundation.h>
 #import <VideoToolbox/VideoToolbox.h>
 #import "CLCDecoderProvideDelegate.h"
+#import "CLCLocalSocketDispatch.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol CLCHostReceiverHandlerDelegate <NSObject>
-@required
-/// 处理解码后的数据
-/// @param pixelBuffer 解码后的数据
-- (void)didGetDecodeBuffer:(CVPixelBufferRef)pixelBuffer;
-@end
-
+/// 封装
 @interface CLCHostReceiver : NSObject
+///事件分发者
+@property (nonatomic, readonly) CLCLocalSocketDispatch *dispatch;
 
-///正在接收中
-@property (nonatomic) BOOL working;
-
-/// 处理数据回调的对象
-@property (nonatomic, weak) id<CLCHostReceiverHandlerDelegate> delegate;
-
-///全村的希望，decode处理者
-- (instancetype)initWithProvider:(id<CLCDecoderProvideDelegate>)provider;
+- (instancetype)init;
 
 /// 开始获取数据
 - (void)start;
@@ -37,3 +27,20 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+/*
+ 施工方案：多个receiver的处理方案
+ 
+ 1.每个connect追加一个connectId，打在socket的userinfo里，
+ 
+ 2.connect通过id选择 -> handler （预设，打开service前预设）
+ 
+ 3.分层，decode与getData分为上下层，老老实实的别粘在一起，gnmd
+ 
+ 4.音频视频的获取方式分别搭建两个上层decode层
+ 
+ 【业务】
+ 《decoder》
+ 《socket》
+ 《base-socket》
+ */

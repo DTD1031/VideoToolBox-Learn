@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class ServiceSocket;
 @protocol ServiceSocketDelegate <NSObject>
 
-///当有新的连接建立时，可以从这里进行参数及回调设置
+///当有新的连接建立时，可以从这里取到connect，进行参数及回调设置
 - (void)service:(ServiceSocket *)service didCreateNewConnect:(ServiceSocketConnect *)connect;
 @end
 

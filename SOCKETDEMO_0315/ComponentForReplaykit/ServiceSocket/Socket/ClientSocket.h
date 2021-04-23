@@ -11,10 +11,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ClientSocket : NSObject
 
-- (instancetype)initWithTag:(NSInteger)tag;
+- (instancetype)initWithConnectId:(NSString *)connectId;
 
 - (void)connectToServer;
 - (void)sendData:(NSData *)data;
+- (void)sendData:(NSData *)dataToSend userInfo:(NSDictionary * _Nullable)userInfo;
 
 //overwrite it
 - (void)sendComplete:(NSString *)feedback;
